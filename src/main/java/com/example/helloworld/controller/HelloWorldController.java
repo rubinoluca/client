@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class HelloWorldController {
     @GetMapping("/")
-    public String getStudents()
+    public void getStudents()
     {
         final String uri = "http://10.217.4.86/students";
     
