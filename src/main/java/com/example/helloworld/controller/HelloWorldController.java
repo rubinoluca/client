@@ -14,10 +14,11 @@ public class HelloWorldController {
     
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(uri, String.class);
-        return result;
+        //return result;
+        System.out.println(result);
     }
     @GetMapping("/hello")
     public String sendGreetings() {
-        return "Hello, World!";
+        return "Hello, World2!";
     }
 }
