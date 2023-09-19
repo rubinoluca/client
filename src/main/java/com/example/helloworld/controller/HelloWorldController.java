@@ -20,13 +20,13 @@ public class HelloWorldController {
         try {
             RestTemplate restTemplate = new RestTemplate();
             result = restTemplate.getForObject(uri, String.class);
-            return "str: " + result;
+            return "str1: " + result;
         }
         catch (Exception e){
 
             StringWriter errors = new StringWriter();
             e.printStackTrace(new PrintWriter(errors));
-            return "str: " + errors.toString();
+            return "str2: " + errors.toString();
         }
 
     }
