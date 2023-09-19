@@ -14,7 +14,7 @@ public class HelloWorldController {
     public String getStudents()
     {
 
-        final String uri = "http://producer-git-testapp.apps-crc.testing/hello";
+        final String uri = "https://producer-git-testapp.apps-crc.testing/hello";
 
         String result = "stringa vuota";
         try {
@@ -23,7 +23,7 @@ public class HelloWorldController {
             return "str1: " + result;
         }
         catch (Exception e){
-
+            // Ritorna il risultato che stamperebbe e.printStackTrace()
             StringWriter errors = new StringWriter();
             e.printStackTrace(new PrintWriter(errors));
             return "str2: " + errors.toString();
