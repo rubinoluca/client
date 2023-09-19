@@ -10,7 +10,7 @@ public class HelloWorldController {
     @GetMapping("/")
     public String getStudents()
     {
-        final String uri = "https://10.217.4.86:8080/hello";
+        final String uri = "https://10.217.4.86/hello";
     
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(uri, String.class);
@@ -20,7 +20,6 @@ public class HelloWorldController {
     }
     @GetMapping("/hello")
     public String sendGreetings() {
-        String str = getStudents();
-        return "Hello, World2!";
+        return "Il client funziona!";
     }
 }
