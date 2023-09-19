@@ -8,17 +8,19 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class HelloWorldController {
     @GetMapping("/")
-    public void getStudents()
+    public String getStudents()
     {
         final String uri = "https://10.217.4.86/students";
     
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(uri, String.class);
         //return result;
-        System.out.println(result);
+        //System.out.println(result);
+        return result;
     }
     @GetMapping("/hello")
     public String sendGreetings() {
-        return "Hello, World2!";
+        String str = getStudents();
+        return "Hello, World2! " + str;
     }
 }
