@@ -16,7 +16,7 @@ public class HelloWorldController {
 
         final String uri = "http://producer-git-testapp.apps-crc.testing/hello";
 
-        String result = "";
+        String result = "stringa vuota";
         try {
             RestTemplate restTemplate = new RestTemplate();
             result = restTemplate.getForObject(uri, String.class);
