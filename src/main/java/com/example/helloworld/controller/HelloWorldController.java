@@ -14,24 +14,25 @@ public class HelloWorldController {
     public String getStudents()
     {
 
-        final String uri = "https://producer-git-testapp.apps-crc.testing/hello";
+        //final String uri = "https://producer-git-testapp.apps-crc.testing/hello";
+        final String uri = "https://10.217.5.39/hello";
 
         String result = "stringa vuota";
         try {
             RestTemplate restTemplate = new RestTemplate();
             result = restTemplate.getForObject(uri, String.class);
-            return "str1: " + result;
+            return "str: " + result;
         }
         catch (Exception e){
             // Ritorna il risultato che stamperebbe e.printStackTrace()
             StringWriter errors = new StringWriter();
             e.printStackTrace(new PrintWriter(errors));
-            return "str2: " + errors.toString();
+            return "str EXCEPTION: " + errors.toString();
         }
 
     }
     @GetMapping("/test")
     public String sendGreetings() {
-        return "Il consumer funziona!3";
+        return "Il consumer funziona";
     }
 }
