@@ -10,7 +10,7 @@ public class HelloWorldController {
     @GetMapping("/")
     public void getStudents()
     {
-        final String uri = "http://10.217.4.86/students";
+        final String uri = "https://10.217.4.86/students";
     
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(uri, String.class);
