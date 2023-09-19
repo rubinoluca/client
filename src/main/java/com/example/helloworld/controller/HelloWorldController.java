@@ -11,7 +11,7 @@ public class HelloWorldController {
     public String getStudents()
     {
         System.out.println("1");
-        final String uri = "https://10.217.4.86:8080/hello";
+        final String uri = "https://test-git-testapp.apps-crc.testing/hello";
         System.out.println("2");
         RestTemplate restTemplate = new RestTemplate();
         System.out.println("3");
