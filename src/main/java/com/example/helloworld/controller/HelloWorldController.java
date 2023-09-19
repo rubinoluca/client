@@ -10,17 +10,22 @@ public class HelloWorldController {
     @GetMapping("/")
     public String getStudents()
     {
-        System.out.println("1");
-        final String uri = "https://test-git-testapp.apps-crc.testing/hello";
-        System.out.println("2");
-        RestTemplate restTemplate = new RestTemplate();
-        System.out.println("3");
-        String result = restTemplate.getForObject(uri, String.class);
-        System.out.println("4");
-        return result;
+
+        final String uri = "https://producer-testapp.apps-crc.testing/hello";
+
+        String result = "";
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            result = restTemplate.getForObject(uri, String.class);
+            return result;
+        }
+        catch (Exception e){
+            return result;
+        }
+
     }
-    @GetMapping("/hello")
+    @GetMapping("/test")
     public String sendGreetings() {
-        return "Il client funziona!";
+        return "Il consumer funziona!";
     }
 }
