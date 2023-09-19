@@ -14,7 +14,7 @@ public class HelloWorldController {
     public String getStudents()
     {
 
-        final String uri = "http://producer-testapp.apps-crc.testing/hello";
+        final String uri = "http://producer-git-testapp.apps-crc.testing/hello";
 
         String result = "";
         try {
