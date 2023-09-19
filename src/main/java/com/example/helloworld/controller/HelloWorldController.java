@@ -14,7 +14,7 @@ public class HelloWorldController {
     public String getStudents()
     {
 
-        final String uri = "https://producer-testapp.apps-crc.testing/hello";
+        final String uri = "http://producer-testapp.apps-crc.testing/hello";
 
         String result = "";
         try {
@@ -30,6 +30,7 @@ public class HelloWorldController {
             return errors.toString();
              */
         }
+        return result;
 
     }
     @GetMapping("/test")
