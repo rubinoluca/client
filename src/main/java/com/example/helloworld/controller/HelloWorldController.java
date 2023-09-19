@@ -15,7 +15,7 @@ public class HelloWorldController {
     {
 
         //final String uri = "https://producer-git-testapp.apps-crc.testing/hello";
-        final String uri = "https://10.217.5.39/hello";
+        final String uri = "https://10.217.5.39:8080/hello";
 
         String result = "stringa vuota";
         try {
