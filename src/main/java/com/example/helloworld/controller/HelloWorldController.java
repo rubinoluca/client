@@ -26,11 +26,10 @@ public class HelloWorldController {
 
     public String make_HTTP_request(String page){
 
-        // final String uri = "http://10.217.4.168:8080/" + page; //Funziona!
-        // final String uri = "https://10.217.4.168:8080/" + page;  //Non funziona! Errore certificato SSL
-        // final String uri = "https://producer-git-testapp.apps-crc.testing/" + page;  //Non funziona! Errore certificato SSL
-        final String uri = "http://producer-git-testapp.apps-crc.testing/" + page;  //Non funziona! Non stampa nulla!
-
+        final String uri = "http://10.217.4.168:8080/" + page;                          // Funziona!
+        // final String uri = "https://10.217.4.168:8080/" + page;                      // Non funziona! Errore certificato SSL
+        // final String uri = "https://producer-git-testapp.apps-crc.testing/" + page;  // Non funziona! Errore certificato SSL
+        // final String uri = "http://producer-git-testapp.apps-crc.testing/" + page;   // Non funziona! Stampa: "str: null"
 
         String result = "stringa vuota";
         try {
@@ -44,8 +43,8 @@ public class HelloWorldController {
             return "str EXCEPTION: " + errors.toString(); // Ritorna il risultato che stamperebbe e.printStackTrace()
         }
     }
-    @GetMapping("/test")
+    @GetMapping("/")
     public String sendGreetings() {
-        return "Il consumer funziona";
+        return "Il consumer funziona.";
     }
 }
