@@ -10,12 +10,13 @@ public class HelloWorldController {
     @GetMapping("/")
     public String getStudents()
     {
+        System.out.println("1");
         final String uri = "https://10.217.4.86:8080/hello";
-    
+        System.out.println("2");
         RestTemplate restTemplate = new RestTemplate();
+        System.out.println("3");
         String result = restTemplate.getForObject(uri, String.class);
-        //return result;
-        //System.out.println(result);
+        System.out.println("4");
         return result;
     }
     @GetMapping("/hello")
