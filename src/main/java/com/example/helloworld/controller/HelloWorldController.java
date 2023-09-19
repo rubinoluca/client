@@ -14,17 +14,16 @@ public class HelloWorldController {
     @GetMapping("/getstudents")
     public String getStudents()
     {
-        return make_HTTP_request("students");
+        return consume_API("students");
     }
 
     @GetMapping("/gethello")
     public String getHello()
     {
-        return make_HTTP_request("hello");
+        return consume_API("hello");
     }
 
-
-    public String make_HTTP_request(String page){
+    public String consume_API(String page){
 
         final String uri = "http://10.217.4.168:8080/" + page;                          // Funziona!
         // final String uri = "https://10.217.4.168:8080/" + page;                      // Non funziona! Errore certificato SSL
