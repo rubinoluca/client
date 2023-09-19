@@ -23,14 +23,11 @@ public class HelloWorldController {
             return result;
         }
         catch (Exception e){
-            e.printStackTrace();
-            /*
+
             StringWriter errors = new StringWriter();
             e.printStackTrace(new PrintWriter(errors));
             return errors.toString();
-             */
         }
-        return result;
 
     }
     @GetMapping("/test")
