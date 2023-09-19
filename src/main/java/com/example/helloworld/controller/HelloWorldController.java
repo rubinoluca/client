@@ -32,6 +32,6 @@ public class HelloWorldController {
     }
     @GetMapping("/test")
     public String sendGreetings() {
-        return "Il consumer funziona!";
+        return "Il consumer funziona!3";
     }
 }
