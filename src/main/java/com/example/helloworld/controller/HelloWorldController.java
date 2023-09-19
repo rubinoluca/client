@@ -37,11 +37,16 @@ public class HelloWorldController {
             return "str: " + result;
         }
         catch (Exception e){
-            StringWriter errors = new StringWriter();
-            e.printStackTrace(new PrintWriter(errors));
-            return "str EXCEPTION: " + errors.toString(); // Ritorna il risultato che stamperebbe e.printStackTrace()
+            return "str EXCEPTION: " + convert_printstackTrace_to_str(e);
         }
     }
+
+    public String convert_printstackTrace_to_str(Exception e){
+        StringWriter errors = new StringWriter();
+        e.printStackTrace(new PrintWriter(errors));
+        return errors.toString();
+    }
+
     @GetMapping("/")
     public String sendGreetings() {
         return "Il consumer funziona.";
