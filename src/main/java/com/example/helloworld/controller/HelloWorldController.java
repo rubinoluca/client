@@ -14,26 +14,23 @@ public class HelloWorldController {
     @GetMapping("/getstudents")
     public String getStudents()
     {
-        final String uri = "http://10.217.4.168:8080/students";
-
-        String result = "stringa vuota";
-        try {
-            RestTemplate restTemplate = new RestTemplate();
-            result = restTemplate.getForObject(uri, String.class);
-            return "str: " + result;
-        }
-        catch (Exception e){
-            StringWriter errors = new StringWriter();
-            e.printStackTrace(new PrintWriter(errors));
-            return "str EXCEPTION: " + errors.toString(); // Ritorna il risultato che stamperebbe e.printStackTrace()
-        }
+        return make_HTTP_request("students");
     }
 
     @GetMapping("/gethello")
     public String getHello()
     {
+        return make_HTTP_request("hello");
+    }
 
-        final String uri = "http://10.217.4.168:8080/hello";
+
+    public String make_HTTP_request(String page){
+
+        // final String uri = "http://10.217.4.168:8080/" + page; //Funziona!
+        // final String uri = "https://10.217.4.168:8080/" + page;  //Non funziona! Errore certificato SSL
+        // final String uri = "https://producer-git-testapp.apps-crc.testing/" + page;  //Non funziona! Errore certificato SSL
+        final String uri = "http://producer-git-testapp.apps-crc.testing/" + page;  //Non funziona! Non stampa nulla!
+
 
         String result = "stringa vuota";
         try {
@@ -46,7 +43,6 @@ public class HelloWorldController {
             e.printStackTrace(new PrintWriter(errors));
             return "str EXCEPTION: " + errors.toString(); // Ritorna il risultato che stamperebbe e.printStackTrace()
         }
-
     }
     @GetMapping("/test")
     public String sendGreetings() {
