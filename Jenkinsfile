@@ -11,7 +11,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/Bravinsimiyu/jenkins-kubernetes-deployment.git'
+        git 'https://github.com/rubinoluca/consumer.git'
       }
     }
 
@@ -29,7 +29,7 @@ pipeline {
            }
       steps{
         script {
-          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+          docker.withRegistry( 'https://ghcr.io/rubinoluca/consumer:latest', registryCredential ) {
             dockerImage.push("latest")
           }
         }
