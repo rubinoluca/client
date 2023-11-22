@@ -1,16 +1,5 @@
-FROM node:19-alpine3.16
+FROM openjdk:8
+WORKDIR /
+EXPOSE 8081
+CMD java -jar consumer.jar
 
-WORKDIR /react-app
-
-COPY package.json .
-
-COPY package-lock.json .
-
-RUN npm i
-
-
-COPY . .
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
