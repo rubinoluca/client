@@ -37,6 +37,9 @@ pipeline{
         stage('Deploying java test container to Kubernetes') {
             steps {
                 script {
+                    sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'
+                    sh 'chmod u+x ./kubectl'
+                    sh './kubectl get pods'
                     sh "kubectl apply -f deployment.yaml --kubeconfig=\$KUBECONFIG"
                     sh 'kubectl apply -f service.yaml --kubeconfig=$KUBECONFIG'
                 }
