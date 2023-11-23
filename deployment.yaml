@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: deployment
   labels:
-    app: react-app
+    app: java-test
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: react-app
+      app: java-test
   template:
     metadata:
       labels:
-        app: react-app 
+        app: java-test
     spec:
       containers:
-      - name: react-app
-        image: rubinoluca/consumer:latest
+      - name: java-test
+        image: lurubino/test-repotest:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
