@@ -10,5 +10,7 @@ RUN git clone https://github.com/rubinoluca/consumer.git
 
 RUN cd consumer && /apache-maven-3.9.4/bin/mvn clean && /apache-maven-3.9.4/bin/mvn install -DskipTests
 
-CMD java -jar consumer/target/consumer.jar
+CMD ls
+
+# CMD java -jar consumer/target/consumer.jar
 
