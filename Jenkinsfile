@@ -33,5 +33,12 @@ pipeline{
                 }
             }
         }
+        stage('Deploying java test container to Kubernetes') {
+            steps {
+                script {
+                    kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+                }
+            }
+        }
     }
 }
