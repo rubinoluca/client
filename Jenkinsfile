@@ -1,49 +1,28 @@
-pipeline {
-
-  environment {
-    dockerimagename = "bravinwasike/react-app"
-    dockerImage = ""
-  }
-
-  agent any
-
-  stages {
-
-    stage('Checkout Source') {
-      steps {
-        git 'https://github.com/rubinoluca/consumer.git'
-      }
+pipeline{
+    agent any
+    options{
+        buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '5'))
+        timestamps()
     }
-
-    stage('Build image') {
+    environment{
+        registry = "lurubino/test-repotest"
+        registryCredential = 'dockerhub'        
+    }
+    stages{
+       stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build dockerimagename
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
-
-    stage('Pushing Image') {
-      environment {
-               registryCredential = 'dockerhub-credentials'
-           }
+       stage('Deploy Image') {
       steps{
-        script {
-          docker.withRegistry( 'https://ghcr.io/rubinoluca/consumer:latest', registryCredential ) {
-            dockerImage.push("latest")
+         script {
+            docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
           }
         }
       }
     }
-
-    stage('Deploying App to Kubernetes') {
-      steps {
-        script {
-          kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
-        }
-      }
-    }
-
-  }
-
 }
