@@ -6,23 +6,32 @@ pipeline{
     }
     environment{
         registry = "lurubino/test-repotest"
-        registryCredential = 'dockerhub'        
+        registryCredential = 'dockerhub'
     }
     stages{
-       stage('Building image') {
-      steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        stage('Initialize'){
+            steps{
+                script{
+                    def dockerHome = tool 'docker'
+                    env.PATH = "${dockerHome}/bin:${env.PATH}"
+                }
+            }
         }
-      }
-    }
-       stage('Deploy Image') {
-      steps{
-         script {
-            docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-          }
+        stage('Building image') {
+            steps{
+                script {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
         }
-      }
+        stage('Deploy Image') {
+            steps{
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
     }
 }
