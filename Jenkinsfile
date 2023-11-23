@@ -7,6 +7,7 @@ pipeline{
     environment{
         registry = "lurubino/test-repotest"
         registryCredential = 'dockerhub'
+        KUBECONFIG = credentials('kubeconfig')
     }
     stages{
         stage('Initialize'){
@@ -36,7 +37,8 @@ pipeline{
         stage('Deploying java test container to Kubernetes') {
             steps {
                 script {
-                    kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+                    sh "kubectl apply -f deployment.yaml --kubeconfig=\$KUBECONFIG"
+                    sh 'kubectl apply -f service.yaml --kubeconfig=$KUBECONFIG'
                 }
             }
         }
