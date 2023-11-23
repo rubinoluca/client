@@ -12,5 +12,5 @@ RUN cd consumer && /apache-maven-3.9.4/bin/mvn clean && /apache-maven-3.9.4/bin/
 
 CMD cd consumer && ls
 
-CMD java -jar consumer/target/consumer.jar
+# CMD java -jar consumer/target/consumer.jar
 
