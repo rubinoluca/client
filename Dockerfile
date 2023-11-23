@@ -10,7 +10,6 @@ RUN git clone https://github.com/rubinoluca/consumer.git
 
 RUN cd consumer && /apache-maven-3.9.4/bin/mvn clean && /apache-maven-3.9.4/bin/mvn install -DskipTests
 
-CMD cd consumer/target && ls
 
-# CMD java -jar consumer/target/consumer.jar
+CMD java -jar consumer/target/spring-boot-2-hello-world-1.0.2-SNAPSHOT.jar
 
