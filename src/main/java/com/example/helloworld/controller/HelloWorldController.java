@@ -49,6 +49,6 @@ public class HelloWorldController {
 
     @GetMapping("/")
     public String sendGreetings() {
-        return "Il consumer funziona. Prova jenkins! 1";
+        return "Il consumer funziona. Prova jenkins! 2";
     }
 }
